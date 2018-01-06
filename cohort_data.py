@@ -22,8 +22,9 @@ def unique_houses(filename):
         student_info = line.split("|")
         if student_info[2] != "":
             houses.add(student_info[2])
+    #     houses.add(student_info[2])
 
-        #houses.remove("") """ Ask why this didn't work .""""
+    # houses.remove("")
 
     cohort_data.close()
     return houses
