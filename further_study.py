@@ -99,8 +99,10 @@ def custom_insert(input_list, index, value):
         True
 
     """
-
-    pass
+    remaining_list = input_list[index:]
+    input_list[index:] = [value]
+    for item in remaining_list:
+        input_list[-1:] = [input_list[-1], item]
 
 
 def custom_remove(input_list, value):
@@ -118,8 +120,12 @@ def custom_remove(input_list, value):
         True
 
     """
+    current_index = 0
 
-    pass
+    for item in input_list:
+        if value == item:
+            input_list[current_index:] = input_list[current_index+1:]
+            return
 
 
 def custom_pop(input_list):
@@ -137,8 +143,10 @@ def custom_pop(input_list):
         ['Jan', 'Feb']
 
     """
+    popped_item = input_list[-1]
+    del input_list[-1]
 
-    return None
+    return popped_item
 
 
 def custom_index(input_list, value):
@@ -153,8 +161,13 @@ def custom_index(input_list, value):
         1
 
     """
+    current_index = 0
+    for item in input_list:
+        if value == item:
+            return current_index
+        current_index += 1
 
-    return 0
+    return current_index
 
 
 def custom_count(input_list, value):
@@ -169,8 +182,12 @@ def custom_count(input_list, value):
         2
 
     """
+    counter = 0
+    for item in input_list:
+        if item == value:
+            counter += 1
 
-    return 0
+    return counter
 
 
 def custom_reverse(input_list):
@@ -189,7 +206,8 @@ def custom_reverse(input_list):
 
     """
 
-    pass
+    input_list[::] = input_list[::-1]
+
 
 
 def custom_contains(input_list, value):
@@ -209,7 +227,10 @@ def custom_contains(input_list, value):
 
     """
 
-    return None
+    for item in input_list:
+        if item == value:
+            return True
+    return False
 
 
 def custom_equality(some_list, another_list):
@@ -227,8 +248,13 @@ def custom_equality(some_list, another_list):
         False
 
     """
-
-    return None
+    current_index = 0
+    for item in some_list:
+        if item == another_list[current_index]:
+            current_index += 1
+        else:
+            return False
+    return True
 
 
 ##############################################################################
