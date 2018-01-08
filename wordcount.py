@@ -22,7 +22,16 @@ def get_word_count(file_name):
             line = line.rstrip()
             words = line.split()
             for word in words:
-                word_count[word] = word_count.get(word, 0) + 1
+                word = word.lower()
+                if word.isalnum():
+                    word_count[word] = word_count.get(word, 0) + 1
+                else:
+                    new_word = ""
+                    for character in word:
+                        if character.isalnum():
+                            new_word += character
+                    word_count[new_word] = word_count.get(new_word, 0) + 1
+
 
     for word, count in word_count.iteritems():
         print word, count
