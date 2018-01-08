@@ -13,6 +13,9 @@ from sys import argv
 from collections import Counter
 
 
+# TODO: Fix bug where punctuation in the middle of a word
+#       is being stripped from the word
+
 # def get_word_count(file_name):
 #     """Prints word count of given file"""
 #     word_count = {}
@@ -58,7 +61,9 @@ def get_word_count(file_name):
 
     document.close()
 
-    for word, count in c.iteritems():
-        print word, count
+    sorted_words = sorted(c.keys())
+
+    for word in sorted_words:
+        print word, c[word]
 
 get_word_count(argv[1])
