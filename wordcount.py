@@ -9,6 +9,7 @@ if it is, we'll increment the current value by 1
 
 print dictionary with the format, key " " value
 """
+from sys import argv
 
 
 def get_word_count(file_name):
@@ -32,10 +33,7 @@ def get_word_count(file_name):
                             new_word += character
                     word_count[new_word] = word_count.get(new_word, 0) + 1
 
-
     for word, count in word_count.iteritems():
         print word, count
 
-
-get_word_count("test.txt")
-get_word_count("twain.txt")
+get_word_count(argv[1])
