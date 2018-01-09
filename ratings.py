@@ -38,10 +38,8 @@ def print_sorted(restaurant_ratings):
 
 def get_new_restaurant():
     """Asks user for new restaurant and ratings; adds it to dictionary."""
-    print "Add a restaurant and rating to the list. Type 'q' to quit."
+    print "Add a restaurant and rating to the list."
     new_restaurant = raw_input("Give me a restaurant! ")
-    if new_restaurant.lower() == 'q':
-        quit()
     new_rating = raw_input("What's its score? ")
     try:
         if int(new_rating) < 1 or int(new_rating) > 5:
@@ -56,6 +54,18 @@ def get_new_restaurant():
 
 
 restaurant_and_ratings = organize_restaurant_ratings(argv[1])
-print_sorted(restaurant_and_ratings)
 while True:
-    get_new_restaurant()
+    print "\nTo see all ratings in alphabetical order type 'A'."
+    print "To add and rate a new restaurant type 'B'."
+    print "To quit, type 'Q'"
+    behavior = raw_input(">> ").lower()
+
+    if behavior == 'a':
+        print_sorted(restaurant_and_ratings)
+    elif behavior == 'b':
+        get_new_restaurant()
+    elif behavior == 'q':
+        quit()
+    else:
+        print "I didn't understand that!"
+        print "Please type 'A', 'B', or 'Q'."
