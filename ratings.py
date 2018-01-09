@@ -8,8 +8,8 @@
 from sys import argv
 
 
-def print_restaurant_ratings(file_name):
-    """prints restaurant and its rating from a file"""
+def organize_restaurant_ratings(file_name):
+    """Organizes restaurants and ratings from file into adictionary."""
 
     restaurant_ratings = {}
 
@@ -20,14 +20,42 @@ def print_restaurant_ratings(file_name):
             restaurant, rating = line.split(":")
             restaurant_ratings[restaurant] = rating
 
+    return restaurant_ratings
+
     # restaurants = sorted(restaurant_ratings.keys())
 
     # for restaurant in restaurants:
     #     print "%s is rated at %s" % (restaurant,
     #                                  restaurant_ratings[restaurant])
 
+
+def print_sorted(restaurant_ratings):
+    """Print restaurants in alphabetical order with rating."""
+    print "--- Restaurants and Ratings ---"
     for restaurant, rating in sorted(restaurant_ratings.items()):
         print "%s is rated at %s" % (restaurant, rating)
 
 
-print_restaurant_ratings(argv[1])
+def get_new_restaurant():
+    """Asks user for new restaurant and ratings; adds it to dictionary."""
+    print "Add a restaurant and rating to the list. Type 'q' to quit."
+    new_restaurant = raw_input("Give me a restaurant! ")
+    if new_restaurant.lower() == 'q':
+        quit()
+    new_rating = raw_input("What's its score? ")
+    try:
+        if int(new_rating) < 1 or int(new_rating) > 5:
+            print "Not a valid score"
+            get_new_restaurant()
+    except ValueError:
+        print "That's not a number!"
+        get_new_restaurant()
+    restaurant_and_ratings[new_restaurant] = new_rating
+
+    print_sorted(restaurant_and_ratings)
+
+
+restaurant_and_ratings = organize_restaurant_ratings(argv[1])
+print_sorted(restaurant_and_ratings)
+while True:
+    get_new_restaurant()
