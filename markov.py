@@ -41,30 +41,27 @@ def make_chains(text_string):
     """
 
     chains = {}
-
     words = text_string.split()
+    words.append(None)
+
     for i in range(len(words)-2):
         new_tuple = (words[i], words[i+1])
         if new_tuple in chains:
             chains[new_tuple].append(words[i+2])
         else:
             chains[new_tuple] = [words[i+2]]
-    chains[(words[-2], words[-1])] = []
     return chains
 
 
 def make_text(chains):
     """Return text from chains."""
 
-    words = []
-
     link = choice(chains.keys())
-    words.extend(list(link))
+    words = list(link)
 
     while True:
-        try:
-            next_word = choice(chains[link])
-        except IndexError:
+        next_word = choice(chains[link])
+        if not next_word:
             break
         words.append(next_word)
         link = (words[-2], words[-1])
