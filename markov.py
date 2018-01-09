@@ -49,7 +49,7 @@ def make_chains(text_string):
             chains[new_tuple].append(words[i+2])
         else:
             chains[new_tuple] = [words[i+2]]
-    chains[(words[-2], words[-1])] = None
+    chains[(words[-2], words[-1])] = []
     return chains
 
 
@@ -58,7 +58,16 @@ def make_text(chains):
 
     words = []
 
-    # your code goes here
+    link = choice(chains.keys())
+    words.extend(list(link))
+
+    while True:
+        try:
+            next_word = choice(chains[link])
+        except IndexError:
+            break
+        words.append(next_word)
+        link = (words[-2], words[-1])
 
     return " ".join(words)
 
@@ -70,7 +79,6 @@ input_text = open_and_read_file(input_path)
 
 # Get a Markov chain
 chains = make_chains(input_text)
-print chains
 
 # Produce random text
 random_text = make_text(chains)
