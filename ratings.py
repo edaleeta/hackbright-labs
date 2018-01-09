@@ -76,9 +76,26 @@ def update_random_restaurant():
     new_rating = None
     while not is_valid_rating(new_rating):
         new_rating = raw_input("What should its rating be? ")
-        # new_rating_valid = is_valid_rating(new_rating):
 
     restaurant_and_ratings[random_restaurant] = new_rating
+
+
+def update_chosen_restaurant():
+    """Allows user to select a restaurant and update its rating."""
+
+    chosen_restaurant = raw_input("What restaurant do you want to update? ")
+
+    if chosen_restaurant in restaurant_and_ratings:
+        new_rating = None
+
+        while not is_valid_rating(new_rating):
+            new_rating = raw_input("What should its rating be? ")
+    else:
+        print "Please choose a restaurant on the list."
+        print_sorted(restaurant_and_ratings)
+        update_chosen_restaurant()
+
+    restaurant_and_ratings[chosen_restaurant] = new_rating
 
 
 def get_user_interaction():
@@ -87,6 +104,7 @@ def get_user_interaction():
         print "\nTo see all ratings in alphabetical order type 'A'."
         print "To add and rate a new restaurant type 'B'."
         print "To update a random restaurant's rating type 'C'."
+        print "To select a restaurant and update its rating type 'D'."
         print "To quit, type 'Q'"
         behavior = raw_input(">> ").lower()
 
@@ -96,6 +114,8 @@ def get_user_interaction():
             get_new_restaurant()
         elif behavior == 'c':
             update_random_restaurant()
+        elif behavior == 'd':
+            update_chosen_restaurant()
         elif behavior == 'q':
             quit()
         else:
