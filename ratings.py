@@ -6,6 +6,7 @@
 """Restaurant rating lister."""
 
 from sys import argv
+from random import choice
 
 
 def organize_restaurant_ratings(file_name):
@@ -43,23 +44,49 @@ def get_new_restaurant():
     print "Add a restaurant and rating to the list."
     new_restaurant = raw_input("Give me a restaurant! ")
     new_rating = raw_input("What's its score? ")
-    try:
-        if int(new_rating) < 1 or int(new_rating) > 5:
-            print "Not a valid score"
-            get_new_restaurant()
-    except ValueError:
-        print "That's not a number!"
+    if is_valid_rating(new_rating):
+        restaurant_and_ratings[new_restaurant] = new_rating
+    else:
         get_new_restaurant()
-
-    restaurant_and_ratings[new_restaurant] = new_rating
 
     print_sorted(restaurant_and_ratings)
 
 
+def is_valid_rating(rating):
+    """Checks if a rating is valid."""
+    if rating is None:
+        return False
+    try:
+        if int(rating) < 1 or int(rating) > 5:
+            print "Not a valid score"
+            return False
+    except ValueError:
+        print "That's not a number!"
+        return False
+
+    return True
+
+
+def update_random_restaurant():
+    """Selects a random restaurant and prompts user for updated rating"""
+
+    random_restaurant = choice(restaurant_and_ratings.keys())
+    print "The restaurant is %s.  It's rating is %s" % (random_restaurant, restaurant_and_ratings[random_restaurant])
+
+    new_rating = None
+    while not is_valid_rating(new_rating):
+        new_rating = raw_input("What should its rating be? ")
+        # new_rating_valid = is_valid_rating(new_rating):
+
+    restaurant_and_ratings[random_restaurant] = new_rating
+
+
 def get_user_interaction():
+    """Prompts user for what they want to do."""
     while True:
         print "\nTo see all ratings in alphabetical order type 'A'."
         print "To add and rate a new restaurant type 'B'."
+        print "To update a random restaurant's rating type 'C'."
         print "To quit, type 'Q'"
         behavior = raw_input(">> ").lower()
 
@@ -67,6 +94,8 @@ def get_user_interaction():
             print_sorted(restaurant_and_ratings)
         elif behavior == 'b':
             get_new_restaurant()
+        elif behavior == 'c':
+            update_random_restaurant()
         elif behavior == 'q':
             quit()
         else:
