@@ -45,24 +45,19 @@ def make_chains(text_string):
     words = text_string.split()
     words.append(None)
 
-    for i in range(len(words)-N):
-        tuple_contents = []
-
-        for j in range(N):
-            tuple_contents.append(words[j+i])
-
-        new_tuple = tuple(tuple_contents)
+    for i in range(len(words) - n):
+        new_tuple = tuple(words[i:i+n])
 
         if new_tuple in chains:
-            chains[new_tuple].append(words[i+N])
+            chains[new_tuple].append(words[i + n])
         else:
-            chains[new_tuple] = [words[i+N]]
+            chains[new_tuple] = [words[i + n]]
     return chains
 
 
 def make_text(chains):
     """Return text from chains."""
-    PUNCTUATION = [".", "?", "!"]
+    punctuation = [".", "?", "!"]
 
     while True:
         link = choice(chains.keys())
@@ -77,15 +72,15 @@ def make_text(chains):
             break
 
         words.append(next_word)
-        link = tuple(words[-N:])
+        link = tuple(words[-n:])
 
-    if words[-1][-1] not in PUNCTUATION:
-        words[-1] = words[-1] + choice(PUNCTUATION)
+    if words[-1][-1] not in punctuation:
+        words[-1] = words[-1] + choice(punctuation)
 
     return " ".join(words)
 
 
-N = int(sys.argv[2])  # number for n-grams
+n = int(sys.argv[2])  # number for n-grams
 
 input_path = sys.argv[1]
 
