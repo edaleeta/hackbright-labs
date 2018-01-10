@@ -1,69 +1,51 @@
-# put your code here.
-"""
-initialize dictionary
-open the file
-split it on any space
-iterate over the list
-use .get to check if word is in the dictionary
-if it is, we'll increment the current value by 1
-
-print dictionary with the format, key " " value
-"""
 from sys import argv
 from collections import Counter
+from operator import itemgetter
 
-
-# TODO: Fix bug where punctuation in the middle of a word
-#       is being stripped from the word
-
-# def get_word_count(file_name):
-#     """Prints word count of given file"""
-#     word_count = {}
-#     # document = open(file_name)
-
-#     with open(file_name) as document:
-
-#         for line in document:
-#             line = line.rstrip()
-#             words = line.split()
-#             for word in words:
-#                 word = word.lower()
-#                 if word.isalnum():
-#                     word_count[word] = word_count.get(word, 0) + 1
-#                 else:
-#                     new_word = ""
-#                     for character in word:
-#                         if character.isalnum():
-#                             new_word += character
-#                     word_count[new_word] = word_count.get(new_word, 0) + 1
-
-#     for word, count in word_count.iteritems():
-#         print word, count
 
 def get_word_count(file_name):
-    document = open(file_name)
-    document_contents = document.read()
+    """Reads in a file and prints frequency of each word found."""
+
+    with open(file_name) as document:
+        document_contents = document.read()
 
     words = document_contents.split()
+    index_deletions = []
 
-    c = Counter()
+    # Cleans words
+    for index, word in enumerate(words):
+        if word == "":
+            continue
 
-    for word in words:
+        # While the last char of the word is not alnum, strip that char.
+        try:
+            while not word[-1].isalnum():
+                word = word[:-1]
+        except IndexError:
+            # No chars are valid; mark for deletion.
+            index_deletions.append(index)
+            continue
+
+        # While first char is the word is not alnum, strip that char.
+        while not word[0].isalnum():
+            word = word[1:]
+
+        # Word count ignores capitalization.
         word = word.lower()
-        if word.isalnum():
-            c[word] += 1
-        else:
-            new_word = ""
-            for character in word:
-                if character.isalnum():
-                    new_word += character
-            c[new_word] += 1
 
-    document.close()
+        words[index] = word
 
-    sorted_words = sorted(c.keys())
+    # Deletes invalid words; reversed to prevent index shifting.
+    for index in reversed(index_deletions):
+        del words[index]
 
-    for word in sorted_words:
-        print word, c[word]
+    word_count = Counter(words)
+
+    sorted_word_count = sorted(word_count.items(), key=itemgetter(0))
+    sorted_word_count = sorted(sorted_word_count,
+                               key=itemgetter(1), reverse=True)
+
+    for word, count in sorted_word_count:
+        print word, count
 
 get_word_count(argv[1])
