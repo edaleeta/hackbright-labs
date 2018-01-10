@@ -4,16 +4,21 @@ from random import choice
 import sys
 
 
-def open_and_read_file(file_path):
+def open_and_read_file(files):
     """Take file path as string; return text as string.
 
     Takes a string that is a file path, opens the file, and turns
     the file's contents as one string of text.
     """
 
+    full_document = []
     # your code goes here
-    with open(file_path) as document:
-        return document.read()
+    for filename in files:
+
+        with open(filename) as document:
+            full_document.append(document.read())
+
+    return " ".join(full_document)
 
 
 def make_chains(text_string):
@@ -36,7 +41,6 @@ def make_chains(text_string):
 
         >>> chains[('hi', 'there')]
         ['mary', 'juanita']
-        
         >>> chains[('there','juanita')]
         [None]
     """
@@ -80,9 +84,9 @@ def make_text(chains):
     return " ".join(words)
 
 
-n = int(sys.argv[2])  # number for n-grams
+n = int(sys.argv[1])  # number for n-grams
 
-input_path = sys.argv[1]
+input_path = sys.argv[2:]
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
