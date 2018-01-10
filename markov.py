@@ -62,8 +62,13 @@ def make_chains(text_string):
 
 def make_text(chains):
     """Return text from chains."""
-  
-    link = choice(chains.keys())
+    PUNCTUATION = [".", "?", "!"]
+
+    while True:
+        link = choice(chains.keys())
+        if link[0][0].isupper():
+            break
+
     words = list(link)
 
     while True:
@@ -73,6 +78,9 @@ def make_text(chains):
 
         words.append(next_word)
         link = tuple(words[-N:])
+
+    if words[-1][-1] not in PUNCTUATION:
+        words[-1] = words[-1] + choice(PUNCTUATION)
 
     return " ".join(words)
 
