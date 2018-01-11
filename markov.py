@@ -4,6 +4,7 @@ import os
 import sys
 from random import choice
 import twitter
+import tweet_dumper
 
 
 def open_and_read_file(filenames):
@@ -57,7 +58,8 @@ def make_text(chains):
         words.append(word)
         key = (key[1], word)
 
-    return " ".join(words)
+    text = " ".join(words)
+    return text[0:139]
 
 
 def tweet(chains):
@@ -67,18 +69,29 @@ def tweet(chains):
     # Note: you must run `source secrets.sh` before running this file
     # to make sure these environmental variables are set.
 
-    pass
+#Fis this error! UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 2: ordinal not in range(128)
+    status = api.PostUpdate(make_text(chains))
 
+
+api = twitter.Api(consumer_key=os.environ['TWITTER_CONSUMER_KEY'],
+                  consumer_secret=os.environ['TWITTER_CONSUMER_SECRET'],
+                  access_token_key=os.environ['TWITTER_ACCESS_TOKEN_KEY'],
+                  access_token_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET'])
+
+# t = api.GetUserTimeline(screen_name="thepixxel", count=1)
+# print t
 
 # Get the filenames from the user through a command line prompt, ex:
 # python markov.py green-eggs.txt shakespeare.txt
-filenames = sys.argv[1:]
+twitter_users = sys.argv[1:]
 
 # Open the files and turn them into one long string
-text = open_and_read_file(filenames)
+text = open_and_read_file(tweet_dumper.get_tweets((twitter_users)))
 
 # Get a Markov chain
 chains = make_chains(text)
+#print make_text(chains)
+tweet(chains)
 
 # Your task is to write a new function tweet, that will take chains as input
 # tweet(chains)
