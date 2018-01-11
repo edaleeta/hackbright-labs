@@ -26,7 +26,7 @@ def get_tweets(screen_names):
         alltweets = []
 
         #all subsiquent requests use the max_id param to prevent duplicates
-        new_tweets = api.user_timeline(screen_name=user, count=100)
+        new_tweets = api.user_timeline(screen_name=user, count=200)
 
         #save most recent tweets
         alltweets.extend(new_tweets)
@@ -46,4 +46,4 @@ def get_tweets(screen_names):
 
 if __name__ == '__main__':
     #pass in the username of the account you want to download
-    get_all_tweets("beccamoss")
+    get_tweets(["ThisInspiresUs"])

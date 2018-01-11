@@ -6,6 +6,7 @@ from random import choice
 import twitter
 import tweet_dumper
 
+TWEET_CHAR_COUNT = 240
 
 def open_and_read_file(filenames):
     """Take list of files. Open them, read them, and return one long string."""
@@ -45,21 +46,44 @@ def make_chains(text_string):
 def make_text(chains):
     """Take dictionary of Markov chains; return random text."""
 
-    key = choice(chains.keys())
-    words = [key[0], key[1]]
-    while key in chains:
+    punctuation = [".", "?", "!"]
+
+    char_count = 0
+
+    while True:
+        # Select a random key until we have one that starts with a capital letter.
+        key = choice(chains.keys())
+        if key[0][0].isupper():
+            break
+
+    words = list(key)
+    char_count += len(key[0])
+    char_count += len(key[1])
+
+    while key in chains and char_count + len(words) < TWEET_CHAR_COUNT:
         # Keep looping until we have a key that isn't in the chains
         # (which would mean it was the end of our original text).
+        # OR
+        # Until we reach the max Twitter char limit
         #
         # Note that for long texts (like a full book), this might mean
         # it would run for a very long time.
 
         word = choice(chains[key])
         words.append(word)
+        char_count += len(word)
+        # If the added word puts us over the Twitter limit, pop it off.
+        if char_count + len(words) >= TWEET_CHAR_COUNT:
+            words.pop()
+            break
         key = (key[1], word)
 
     text = " ".join(words)
-    return text[0:139]
+
+    # If our last character isn't a punctuation, add a random one.
+    if text[-1] not in punctuation:
+        text = text + choice(punctuation)
+    return text
 
 
 def tweet(chains):
@@ -69,29 +93,24 @@ def tweet(chains):
     # Note: you must run `source secrets.sh` before running this file
     # to make sure these environmental variables are set.
 
-#Fis this error! UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 2: ordinal not in range(128)
-    status = api.PostUpdate(make_text(chains))
-
+# Fix this error! UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 2: ordinal not in range(128)
+    status = api.PostUpdate(make_text(chains), verify_status_length=False)
 
 api = twitter.Api(consumer_key=os.environ['TWITTER_CONSUMER_KEY'],
                   consumer_secret=os.environ['TWITTER_CONSUMER_SECRET'],
                   access_token_key=os.environ['TWITTER_ACCESS_TOKEN_KEY'],
                   access_token_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET'])
 
-# t = api.GetUserTimeline(screen_name="thepixxel", count=1)
-# print t
-
 # Get the filenames from the user through a command line prompt, ex:
-# python markov.py green-eggs.txt shakespeare.txt
-twitter_users = sys.argv[1:]
+# python markov.py stone.txt phoenix.txt
+file_names = sys.argv[1:] 
 
 # Open the files and turn them into one long string
-text = open_and_read_file(tweet_dumper.get_tweets((twitter_users)))
+
+text = open_and_read_file(file_names)
 
 # Get a Markov chain
 chains = make_chains(text)
-#print make_text(chains)
+
 tweet(chains)
 
-# Your task is to write a new function tweet, that will take chains as input
-# tweet(chains)
