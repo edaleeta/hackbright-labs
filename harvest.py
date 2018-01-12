@@ -1,3 +1,27 @@
+"""Processes data from melon harvest."""
+
+# Defining our list of tuples for melon types
+# (self, code, first_harvest, color, is_seedless, is_bestseller, name,
+# pairings)
+MELONS = [('musk', 1998, 'green', True, True, 'Muskmelon', ['mint']),
+          ('cas', 2003, 'orange', False, False, 'Casaba', ['strawberries',
+                                                           'mint']),
+          ('cren', 1996, 'green', False, False, 'Crenshaw', ['proscuitto']),
+          ('yw', 2013, 'yellow', False, True, 'Yellow Watermelon',
+           ['ice cream'])]
+
+# Defining our list of tuples for harvested melons
+# (melon_id, melon_code, shape_rating, color_rating, field, harvester)
+HARVESTED_MELONS = [(1, 'yw', 8, 7, 2, "Sheila"),
+                    (2, "yw", 3, 4, 2, "Sheila"),
+                    (3, "yw", 9, 8, 3, "Sheila"),
+                    (4, "cas", 10, 6, 35, "Sheila"),
+                    (5, "cren", 8, 9, 35, "Michael"),
+                    (6, "cren", 8, 2, 35, "Michael"),
+                    (7, "cren", 2, 3, 4, "Michael"),
+                    (8, "musk", 6, 7, 4, "Michael"),
+                    (9, "yw", 7, 10, 3, "Sheila")]
+
 ############
 # Part 1   #
 ############
@@ -82,12 +106,6 @@ def make_melon_type_lookup(melon_types):
 
     return melons_dict
 
-# Defining our list of tuples for melons
-# (self, code, first_harvest, color, is_seedless, is_bestseller, name, pairings)
-melons = [('musk', 1998, 'green', True, True, 'Muskmelon', ['mint']),
-          ('cas', 2003, 'orange', False, False, 'Casaba', ['strawberries', 'mint']),
-          ('cren', 1996, 'green', False, False, 'Crenshaw', ['proscuitto']),
-          ('yw', 2013, 'yellow', False, True, 'Yellow Watermelon', ['ice cream'])]
 
 ############
 # Part 2   #
@@ -138,8 +156,33 @@ def make_melons(melons, harvested_melons):
         print "- Color rating:", melon.color_rating
         print "- Harvested from Field", melon.harvest_field
         print "- Harvested by", melon.harvester
+        print ""
 
     return melon_objects
+
+
+def make_melons_from_file(melons, file_name):
+    """Returns a list of Melon objects from a file."""
+
+    def process_file(file_name):
+        """Prepares data from file as list of tuples."""
+        processed_data = []
+        id_num = 0
+        with open(file_name) as data:
+            for line in data:
+                id_num += 1
+                line = line.rstrip()
+                words = line.split()
+                shape_rating, color_rating, code, harvester, field = (
+                    int(words[1]), int(words[3]), words[5], words[8],
+                    int(words[11])
+                )
+                processed_data.append((id_num, code,
+                                       shape_rating, color_rating,
+                                       field, harvester))
+        return processed_data
+
+    make_melons(melons, process_file(file_name))
 
 
 def get_sellability_report(melons):
@@ -154,16 +197,8 @@ def get_sellability_report(melons):
         else:
             sellabilty = "not sellable"
 
-        print "Melon {melon_id} is {sellabilty}.".format(melon_id=melon.melon_id,
-                                                         sellabilty=sellabilty)
+        print "Melon {melon_id} is {sellabilty}.".format(
+            melon_id=melon.melon_id, sellabilty=sellabilty)
 
-
-harvested_melons = [(1, 'yw', 8, 7, 2, "Sheila"),
-                    (2, "yw", 3, 4, 2, "Sheila"),
-                    (3, "yw", 9, 8, 3, "Sheila"),
-                    (4, "cas", 10, 6, 35, "Sheila"),
-                    (5, "cren", 8, 9, 35, "Michael"),
-                    (6, "cren", 8, 2, 35, "Michael"),
-                    (7, "cren", 2, 3, 4, "Michael"),
-                    (8, "musk", 6, 7, 4, "Michael"),
-                    (9, "yw", 7, 10, 3, "Sheila")]
+if __name__ == '__main__':
+    make_melons_from_file(MELONS, 'harvest_log.txt')
