@@ -5,6 +5,7 @@ import sys
 from random import choice
 import twitter
 import tweet_dumper
+import giphypop
 
 TWEET_CHAR_COUNT = 240
 
@@ -46,7 +47,7 @@ def make_chains(text_string):
 def make_text(chains):
     """Take dictionary of Markov chains; return random text."""
 
-    punctuation = [".", "?", "!"]
+    punctuation = [".", "?", "!", "-"]
 
     char_count = 0
 
@@ -93,13 +94,20 @@ def tweet(chains):
     # Note: you must run `source secrets.sh` before running this file
     # to make sure these environmental variables are set.
 
-# Fix this error! UnicodeDecodeError: 'ascii' codec can't decode byte 0xe2 in position 2: ordinal not in range(128)
-    status = api.PostUpdate(make_text(chains), verify_status_length=False)
+    gif = get_random_gif('harry potter')
+    status = api.PostUpdate(make_text(chains), media=gif, verify_status_length=False)
 
+
+# Connect to Twitter 
 api = twitter.Api(consumer_key=os.environ['TWITTER_CONSUMER_KEY'],
                   consumer_secret=os.environ['TWITTER_CONSUMER_SECRET'],
                   access_token_key=os.environ['TWITTER_ACCESS_TOKEN_KEY'],
                   access_token_secret=os.environ['TWITTER_ACCESS_TOKEN_SECRET'])
+
+def get_random_gif(tag):
+    """Generates a random GIPHY url from a tag."""
+    g = giphypop.Giphy()
+    return g.random_gif('harry potter').media_url
 
 # Get the filenames from the user through a command line prompt, ex:
 # python markov.py stone.txt phoenix.txt
