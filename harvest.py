@@ -127,7 +127,7 @@ def make_melons(melons, harvested_melons):
         melon_num, melon_code, shape_rating, color_rating, harvest_field, harvester = melon
 
         melon_object = Melon(melon_num, melontypes_dict[melon_code],
-                        shape_rating, color_rating, harvest_field, harvester)
+                             shape_rating, color_rating, harvest_field, harvester)
 
         melon_objects.append(melon_object)
 
@@ -145,11 +145,20 @@ def make_melons(melons, harvested_melons):
 def get_sellability_report(melons):
     """Given a list of melon object, prints whether each one is sellable."""
 
-    # Fill in the rest 
+    # Fill in the rest
+
+    for melon in melons:
+
+        if melon.is_sellable():
+            sellabilty = "sellable"
+        else:
+            sellabilty = "not sellable"
+
+        print "Melon {melon_id} is {sellabilty}.".format(melon_id=melon.melon_id,
+                                                         sellabilty=sellabilty)
 
 
-harvested_melons = [
-                    (1, 'yw', 8, 7, 2, "Sheila"),
+harvested_melons = [(1, 'yw', 8, 7, 2, "Sheila"),
                     (2, "yw", 3, 4, 2, "Sheila"),
                     (3, "yw", 9, 8, 3, "Sheila"),
                     (4, "cas", 10, 6, 35, "Sheila"),
@@ -157,7 +166,4 @@ harvested_melons = [
                     (6, "cren", 8, 2, 35, "Michael"),
                     (7, "cren", 2, 3, 4, "Michael"),
                     (8, "musk", 6, 7, 4, "Michael"),
-                    (9, "yw", 7, 10, 3, "Sheila")
-                    ]
-
-
+                    (9, "yw", 7, 10, 3, "Sheila")]
