@@ -2,33 +2,38 @@
 {% extends 'base.html' %}
 
 {% block body %}
+    {% if is_empty %}
 
+        <h3>Your cart is empty!</h3>
+        <a href="/melons">Shop for melons here!</a>
 
-{#
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th>Melon Name</th>
-            <th>Quantity</th>
-            <th>Price</th>
-            <th>Total</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for item in cart_items %}
+    {% else %}
+
+        <table class="table table-striped">
+            <thead>
             <tr>
-                <td>{{ item.common_name }}</td>
-                <td>{{ qty }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item_total }}</td>
+                <th>Melon Name</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Total</th>
             </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+            {% for melon in cart_contents %}
+                <tr>
+                    <td>{{ melon.common_name }}</td>
+                    <td>{{ melon.quantity }}</td>
+                    <td>{{ melon.price_str() }}</td>
+                    <td>${{ '{:.2f}'.format(melon.total_price) }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
 
-    <h3>{{ cart_total }}</h3>
+        <h3>${{ '{:.2f}'.format(order_total) }}</h3>
 
-    <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
-#}
+        <a href="/checkout" class="btn btn-large btn-primary">Check Out</a>
+
+    {% endif %}
 
 {% endblock %}
