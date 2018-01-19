@@ -86,11 +86,10 @@ def show_madlib():
     # pop and concatenate last item
 
     if len(animals) == 0:
-        animal = "unicorn"
+        concatenated_str = "unicorn"
     if len(animals) == 1:
-        animal = animals.pop()
+        concatenated_str = animals.pop()
     while len(animals) > 0:
-
         for animal in animals:
 
             if len(animals) == 1:

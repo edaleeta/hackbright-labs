@@ -1,19 +1,18 @@
-<html>
-<head>
-    <title>Madlibs</title>
+{% extends 'content.html' %}
+    
+{% block title %}Madlibs{% endblock %}
 
-    <link rel="stylesheet" href="/static/madlibs.css">
+{% block content_header %}Your Madlib{% endblock %}
 
-
-</head>
-<body>
-    <div id="madlib-container">
-        <h1>Your Madlib</h1>
+{% block text %}
         <p id="madlib-text">
             There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab.
             When {{ person }} went to pick it up, it burst into flames in a totally {{ adjective }} way.
             This made the {{ animals }} run away.
         </p>
-    </div>
-</body>
-</html>
+
+    <form action="/game">
+        <button type="submit" name="play-game" value="yes">Play again!</button>
+    </form>
+
+{% endblock %}
