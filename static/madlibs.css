@@ -1,20 +1,36 @@
 @import url('https://fonts.googleapis.com/css?family=Caveat:400,700');
 
-body {
-    font-family: Caveat;
-    font-size: 2em;
-    background-image: url('/static/paper.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
+html {
+    height: 100%;
 }
 
-#madlib-text {
+body {
+    background-color: #d0d0ce;
+    height:100%;
+    min-height: 100%;
+    font-family: Caveat;
+    font-size: 2em;
+    background-image: url('/static/paper_crop.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
+}
+
+#madlib-container {
     position: relative;
-    margin-left: auto;
-    margin-right: auto;
-    top: 250px;
-    width: 650px;
-    padding: 100px 300px 100px 400px;
+    top: 20vw;
+    margin: 0 auto;
+    width: 60%;
 }
 /*#paper {
     position: fixed;
