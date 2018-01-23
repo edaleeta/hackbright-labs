@@ -40,6 +40,8 @@ def get_student_by_github(github):
     else:
         print "No student found with github \"" + github + "\"."
 
+    return row
+
 
 def make_new_student(first_name, last_name, github):
     """Add a new student and print confirmation.
