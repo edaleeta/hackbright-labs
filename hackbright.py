@@ -6,6 +6,7 @@ projects, and the grades students receive in class projects.
 
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import exc
 
 app = Flask(__name__)
 db = SQLAlchemy()
@@ -46,7 +47,26 @@ def make_new_student(first_name, last_name, github):
     Given a first name, last name, and GitHub account, add student to the
     database and print a confirmation message.
     """
-    pass
+
+    try:
+        QUERY = """
+                INSERT INTO students (first_name, last_name, github)
+                VALUES (:first_name, :last_name, :github)
+                """
+
+        db.session.execute(QUERY, {'first_name': first_name,
+                                   'last_name': last_name,
+                                   'github': github})
+        db.session.commit()
+
+        print "Successfully added student: {first} {last}".format(
+            first=first_name, last=last_name)
+
+    except exc.IntegrityError:
+        print "Student exists with github \"{}\".".format(github)
+
+    except BaseException as e:
+        print "Error in make_new_student(): ", e
 
 
 def get_project_by_title(title):
