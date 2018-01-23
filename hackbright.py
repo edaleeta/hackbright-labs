@@ -33,8 +33,11 @@ def get_student_by_github(github):
 
     row = db_cursor.fetchone()
 
-    print "Student: {first} {last}\nGitHub account: {acct}".format(
-        first=row[0], last=row[1], acct=row[2])
+    if row:
+        print "Student: {first} {last}\nGitHub account: {acct}".format(
+            first=row[0], last=row[1], acct=row[2])
+    else:
+        print "No student found with github \"" + github + "\"."
 
 
 def make_new_student(first_name, last_name, github):
