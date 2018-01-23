@@ -76,6 +76,9 @@ def handle_input():
         args = tokens[1:]
 
         if command == "student":
+            if not args:
+                print "Please enter student github after \"student\"."
+                continue
             github = args[0]
             get_student_by_github(github)
 
@@ -85,13 +88,13 @@ def handle_input():
 
         else:
             if command != "quit":
-                print "Invalid Entry. Try again."
+                print "Invalid Entry. Please enter quit, student, or new_student."
 
 
 if __name__ == "__main__":
     connect_to_db(app)
 
-    # handle_input()
+    handle_input()
 
     # To be tidy, we close our database connection -- though,
     # since this is where our program ends, we'd quit anyway.
