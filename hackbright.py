@@ -64,37 +64,62 @@ def assign_grade(github, title, grade):
     pass
 
 
+def is_bad_args(num_args, req_args, msg=None):
+    """Checks if user entered the required number of args for command."""
+    # If num args less than req args say you need req_args
+
+    if num_args < req_args:
+
+        if msg:
+            print msg
+
+        else:
+            print "Please enter {} arguments.".format(req_args)
+
+        return True
+    return False
+
+
 def handle_input():
     """Main loop.
 
     Repeatedly prompt for commands, performing them, until 'quit' is received as a
     command."""
 
+    QUIT_COMMANDS = ['quit', 'q']
+
     command = None
 
-    while command != "quit":
+    while command not in QUIT_COMMANDS:
         input_string = raw_input("HBA Database> ")
         tokens = input_string.split()
-        command = tokens[0]
+        command = tokens[0].lower()
         args = tokens[1:]
+        num_args = len(args)
 
         if command == "student":
-            if not args:
-                print "Please enter student github after \"student\"."
+            bad_msg = "Please enter student github after \"student\"."
+
+            if is_bad_args(num_args, 1, bad_msg):
                 continue
+
             github = args[0]
             get_student_by_github(github)
 
         elif command == "new_student":
+            if is_bad_args(num_args, 3):
+                continue
+
             first_name, last_name, github = args  # unpack!
             make_new_student(first_name, last_name, github)
 
         else:
-            if command != "quit":
+            if command not in QUIT_COMMANDS:
                 print "Invalid Entry. Please enter quit, student, or new_student."
 
 
 if __name__ == "__main__":
+    #try:
     connect_to_db(app)
 
     handle_input()
@@ -102,4 +127,8 @@ if __name__ == "__main__":
     # To be tidy, we close our database connection -- though,
     # since this is where our program ends, we'd quit anyway.
 
+    #except:
+    #handle exceptions
+
+    #finally:
     db.session.close()
