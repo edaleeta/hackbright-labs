@@ -2,7 +2,7 @@
 
 from flask import Flask, request, render_template
 
-import hackbright
+import hackbright_ours as hackbright
 
 app = Flask(__name__)
 
@@ -11,10 +11,14 @@ app = Flask(__name__)
 def get_student():
     """Show information about a student."""
 
-    github = "jhacks"
+    github = request.args.get('github')
+
+    student = hackbright.get_student_by_github(github)
+
+    if not student:
+        return "There is no student with github \"{}\".".format(github)
 
     first, last, github = hackbright.get_student_by_github(github)
-
     return "{acct} is the GitHub account for {first} {last}".format(
         acct=github, first=first, last=last)
 
