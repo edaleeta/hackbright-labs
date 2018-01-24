@@ -53,13 +53,6 @@ def get_student_form():
     return render_template("student_search.html")
 
 
-@app.route("/project-search")
-def get_project_form():
-    """Show form for searching for a project."""
-
-    return render_template("project_search.html")
-
-
 @app.route("/new-student", methods=['POST'])
 def post_student():
     """Add student to database."""
@@ -103,6 +96,35 @@ def get_project():
                            description=description,
                            max_grade=max_grade,
                            grades=grades)
+
+
+@app.route("/project-search")
+def get_project_form():
+    """Show form for searching for a project."""
+
+    return render_template("project_search.html")
+
+
+@app.route("/new-project", methods=['POST'])
+def post_project():
+    """Add project to database."""
+
+    title = request.form.get('title')
+    description = request.form.get('description')
+    max_grade = request.form.get('max_grade')
+
+    hackbright.make_new_project(title, description, max_grade)
+
+    flash("Successfully added new project.")
+
+    return redirect("/project?title={}".format(title))
+
+
+@app.route("/new-project")
+def get_project_add_form():
+    """Show form for adding a project."""
+
+    return render_template("project_add.html")
 
 
 if __name__ == "__main__":
