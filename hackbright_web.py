@@ -1,11 +1,23 @@
 """A web application for tracking projects, students, and student grades."""
 
-from flask import flash, Flask, redirect, render_template, request, session
+from flask import flash, Flask, redirect, render_template, request
 
 import hackbright_ours as hackbright
 
 app = Flask(__name__)
 app.secret_key = "randomstring"
+
+
+@app.route("/")
+def get_homepage():
+    """Shows the homepage listing students and projects."""
+
+    projects = hackbright.get_projects()
+    students = hackbright.get_students()
+
+    return render_template("homepage.html",
+                           students=students,
+                           projects=projects)
 
 
 @app.route("/student")
