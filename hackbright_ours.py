@@ -84,6 +84,9 @@ def get_project_by_title(title):
 
     row = db_cursor.fetchone()
 
+    if not row:
+        return
+
     print "Title: {title}".format(title=row[0])
     print "Description: {description}".format(description=row[1])
     print "Max Grade: {max_grade}".format(max_grade=row[2])
@@ -104,6 +107,9 @@ def get_grade_by_github_title(github, title):
     db_cursor = db.session.execute(QUERY, {'github': github, 'title': title})
 
     row = db_cursor.fetchone()
+
+    if not row:
+        return
 
     print "Student {acct} in project {title} received grade of {grade}".format(
         acct=github, title=title, grade=row[0])
@@ -142,6 +148,9 @@ def get_grades_by_github(github):
 
     rows = db_cursor.fetchall()
 
+    if not rows:
+        return
+
     for row in rows:
         print "Student {acct} received grade of {grade} for {title}".format(
             acct=github, grade=row[1], title=row[0])
@@ -161,6 +170,9 @@ def get_grades_by_title(title):
     db_cursor = db.session.execute(QUERY, {'title': title})
 
     rows = db_cursor.fetchall()
+
+    if not rows:
+        return
 
     for row in rows:
         print "Student {acct} received grade of {grade} for {title}".format(

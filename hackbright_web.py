@@ -12,7 +12,9 @@ app.secret_key = "randomstring"
 def get_student():
     """Show information about a student."""
 
-    github = request.args.get('github', '')
+    github = request.args.get('github')
+    if not github:
+        return "Please enter a student!"
 
     student = hackbright.get_student_by_github(github)
 
@@ -59,6 +61,29 @@ def get_student_add_form():
     """Show form for adding a student."""
 
     return render_template("student_add.html")
+
+
+@app.route("/project")
+def get_project():
+    """Show information about a project."""
+
+    title = request.args.get('title')
+    if not title:
+        return "Please enter a title!"
+
+    project = hackbright.get_project_by_title(title)
+
+    grades = hackbright.get_grades_by_title(title)
+
+    if not project:
+        return "There is no project with title \"{}\".".format(title)
+
+    title, description, max_grade = project
+    return render_template("project_info.html",
+                           title=title,
+                           description=description,
+                           max_grade=max_grade,
+                           grades=grades)
 
 
 if __name__ == "__main__":
