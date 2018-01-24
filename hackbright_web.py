@@ -41,6 +41,13 @@ def get_student_form():
     return render_template("student_search.html")
 
 
+@app.route("/project-search")
+def get_project_form():
+    """Show form for searching for a project."""
+
+    return render_template("project_search.html")
+
+
 @app.route("/new-student", methods=['POST'])
 def post_student():
     """Add student to database."""
