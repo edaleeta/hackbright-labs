@@ -89,6 +89,34 @@ def make_new_student(first_name, last_name, github):
         print "Error in make_new_student(): ", e
 
 
+def make_new_project(title, description, max_grade):
+    """Add a new project and print confirmation.
+
+    Given a title, description, and max grade, add project to the
+    database and print a confirmation message.
+    """
+
+    try:
+        QUERY = """
+                INSERT INTO projects (title, description, max_grade)
+                VALUES (:title, :description, :max_grade)
+                """
+
+        db.session.execute(QUERY, {'title': title,
+                                   'description': description,
+                                   'max_grade': max_grade})
+        db.session.commit()
+
+        print "Successfully added project: {title}".format(
+            title=title)
+
+    except exc.IntegrityError:
+        print "Project exists with title \"{}\".".format(title)
+
+    except BaseException as e:
+        print "Error in make_new_project(): ", e
+
+
 def get_project_by_title(title):
     """Given a project title, print information about the project."""
 
