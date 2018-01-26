@@ -33,9 +33,13 @@
                     userGuess = getGuess(randomWord);
                 } else {
                     alert(`Sorry! The correct answer was ${correctWord}.`);
+                    playing = false;
                 }
             }
-            alert(`You were correct! The word was ${correctWord}!`);
+            if (checksGuess(userGuess, correctWord)) {
+                alert(`You were correct! The word was ${correctWord}!`);
+            }
+            
             playing = confirm("Press OK to keep playing or Cancel to quit.");
         }
         alert("Goodbye!");

@@ -33,11 +33,7 @@ function pickRandomWord(words) {
 
 // Random word from map keys
 function pickRandomWordFromKeys(someMap) {
-    let keysList = [];
-    let keys = someMap.keys();
-    for (let key of keys) {
-        keysList.push(key);
-    }
+    let keysList = Array.from(someMap.keys());
     return pickRandomWord(keysList);
 }
 
