@@ -10,6 +10,14 @@
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Raleway" >
     <!-- Our CSS -->
     <link rel="stylesheet" href="static/coffee.css">
+    <!-- JQuery Library -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous">
+    </script>
+
+
 </head>
 <body>
 <div class="container">
@@ -48,25 +56,25 @@
 
     // Set these variables to their DOM elements
 
-    let coffeeImage = document.querySelector("#coffee-image");
+    let coffeeImage = $("#coffee-image");
     let revenueMessage;
 
-    coffeeImage.setAttribute("src", "static/coffee_beans.jpg");
+    coffeeImage.attr("src", "static/coffee_beans.jpg");
 
     // Add event listener for coffee image click
 
     function makeCoffee(evt) {
-        coffeeImage.setAttribute("src", "static/coffee_machine.jpg");
+        coffeeImage.attr("src", "static/coffee_machine.jpg");
 
         setTimeout(function() {
-            coffeeImage.setAttribute("src", "static/coffee_mug.jpg");
+            coffeeImage.attr("src", "static/coffee_mug.jpg");
             setTimeout(function() {
-                coffeeImage.setAttribute("src", "static/coffee_beans.jpg");
+                coffeeImage.attr("src", "static/coffee_beans.jpg");
             }, 2500);
         }, 1500);
     }
 
-    coffeeImage.addEventListener("click", makeCoffee);
+    coffeeImage.on("click", makeCoffee);
 
     // use this JavaScript object in further study step
 
