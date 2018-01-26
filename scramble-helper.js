@@ -122,3 +122,9 @@ function generateShuffledWordsMap (words) {
     }
     return shuffledWordsMap;
 }
+
+// Function to get a user's guess
+function getGuess(randomWord) {
+    let userGuess = prompt(`Try to unscramble this word: ${randomWord} | Enter your guess:`, "");
+    return userGuess.toLowerCase().trim();
+}

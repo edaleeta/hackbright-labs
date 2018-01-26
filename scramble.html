@@ -14,7 +14,6 @@
         // create a map of scrambled words
 
         let scrambledWordsMap = generateShuffledWordsMap(myWords);
-
         let playing = true;
 
         while (playing) {
@@ -24,16 +23,19 @@
             let correctWord = scrambledWordsMap.get(randomWord);
 
             // Use `prompt()` to get the user's guess.
-            userGuess = prompt(`Try to unscramble this word: ${randomWord} | Enter your guess:`, "")
-            userGuess = userGuess.toLowerCase().trim();
+            userGuess = getGuess(randomWord);
 
             // Compare the guess to the original, unscrambled word. 
             // If the user got it right, congratulate them, if not tell them so.
-            if (checksGuess(userGuess, correctWord)) {
-                alert(`You were correct! The word was ${correctWord}!`);
-            } else {
-                alert(`Sorry! The correct answer was ${correctWord}.`)
+
+            while (!checksGuess(userGuess, correctWord) && playing) {
+                if (confirm("Oops! Wrong answer! Would you like to guess again?")) {
+                    userGuess = getGuess(randomWord);
+                } else {
+                    alert(`Sorry! The correct answer was ${correctWord}.`);
+                }
             }
+            alert(`You were correct! The word was ${correctWord}!`);
             playing = confirm("Press OK to keep playing or Cancel to quit.");
         }
         alert("Goodbye!");
