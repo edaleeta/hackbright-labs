@@ -31,6 +31,16 @@ function pickRandomWord(words) {
     return words[randomNum];
 }
 
+// Random word from map keys
+function pickRandomWordFromKeys(someMap) {
+    let keysList = [];
+    let keys = someMap.keys();
+    for (let key of keys) {
+        keysList.push(key);
+    }
+    return pickRandomWord(keysList);
+}
+
 // Create an array of words and save it to a variable. Using your functions create
 // a second array of reversed words.
 
@@ -59,19 +69,12 @@ function mapWordsToReversed(words) {
     return wordsMap;
 }
 
-// Create a function that takes two strings, `guess` and `word` and a map, like
-// the one you created above. If the first string is in the map, return the word
-// if not, console log "Sorry, incorrect. The word was ..." and include word.
-
-function checksGuess(guess, word, wordsMap) {
-    let validGuesses = wordsMap.values();
-
-    for (let validGuess of validGuesses) {
-        if (validGuess === guess) {
-            return word;
-        }
+// Checks to see if user guess was correct. Return true/false.
+function checksGuess(guess, word) {
+    if (guess === word) {
+        return true;
     }
-    console.log(`Sorry, incorrect. The word was ${word}.`);
+    return false;
 }
 
 // FOR TESTING

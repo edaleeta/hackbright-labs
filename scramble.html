@@ -2,6 +2,7 @@
 <html>
 <head>
     <title>Word Scramble</title>
+    <script src="scramble-helper.js"></script>
 </head>
 <body>
     <h1>A JavaScript Word Scramble Game</h1>
@@ -12,28 +13,28 @@
         // create an array of scrambled words
         // create a map of scrambled words
 
+        let scrambledWordsMap = generateShuffledWordsMap(myWords);
+
         let playing = true;
 
         while (playing) {
-
             // Select a scrambled word from your array. 
-
-            // Use `alert()` to show the user the scrambled word.
+            let randomWord = pickRandomWordFromKeys(scrambledWordsMap);
+            // Get the corresponding correct word
+            let correctWord = scrambledWordsMap.get(randomWord);
 
             // Use `prompt()` to get the user's guess.
+            userGuess = prompt(`Try to unscramble this word: ${randomWord} | Enter your guess:`, "")
 
             // Compare the guess to the original, unscrambled word. 
             // If the user got it right, congratulate them, if not tell them so.
-
-#. `prompt()` takes arguments. Find out what they are and see if you can combine
-   the `alert()` and `prompt()` from the last two steps.
-
-#. Compare the guess to the original, unscrambled word. Did they get it right? If
-   so, congratulate them!
-
+            if (checksGuess(userGuess, correctWord)) {
+                alert(`You were correct! The word was ${correctWord}!`);
+            } else {
+                alert(`Sorry! The correct answer was ${correctWord}.`)
+            }
             playing = confirm("Press OK to keep playing or Cancel to quit.");
         }
-
         alert("Goodbye!");
     </script>
 
