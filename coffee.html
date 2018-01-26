@@ -56,25 +56,24 @@
 
     // Set these variables to their DOM elements
 
-    let coffeeImage = $("#coffee-image");
     let revenueMessage;
 
-    coffeeImage.attr("src", "static/coffee_beans.jpg");
+    $("#coffee-image").attr("src", "static/coffee_beans.jpg");
 
     // Add event listener for coffee image click
 
     function makeCoffee(evt) {
-        coffeeImage.attr("src", "static/coffee_machine.jpg");
+        $("#coffee-image").attr("src", "static/coffee_machine.jpg");
 
         setTimeout(function() {
-            coffeeImage.attr("src", "static/coffee_mug.jpg");
+            $("#coffee-image").attr("src", "static/coffee_mug.jpg");
             setTimeout(function() {
-                coffeeImage.attr("src", "static/coffee_beans.jpg");
+                $("#coffee-image").attr("src", "static/coffee_beans.jpg");
             }, 2500);
         }, 1500);
     }
 
-    coffeeImage.on("click", makeCoffee);
+    $("#coffee-image").on("click", makeCoffee);
 
     // use this JavaScript object in further study step
 
