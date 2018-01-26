@@ -56,13 +56,27 @@
 
     // Set these variables to their DOM elements
 
-    let revenueMessage;
+    //let revenueMessage;
 
     $("#coffee-image").attr("src", "static/coffee_beans.jpg");
 
     // Add event listener for coffee image click
 
-    function makeCoffee(evt) {
+    let drinksOrdered = [];
+    // use this JavaScript object in further study step
+
+    const prices = {
+        "brew": 2.05,
+        "espresso": 3.25,
+        "latte": 4.15,
+        "hot-chocolate": 2.50
+    };
+
+    function makeCoffee(drinkType) {
+        let totalRevenue;
+        drinksOrdered.push(drinkType);
+        console.log(drinksOrdered);
+
         $("#coffee-image").attr("src", "static/coffee_machine.jpg");
 
         setTimeout(function() {
@@ -71,18 +85,59 @@
                 $("#coffee-image").attr("src", "static/coffee_beans.jpg");
             }, 2500);
         }, 1500);
+
+        totalRevenue = revenue().toFixed(2);
+        $("#revenue").html(`$${totalRevenue}`);
+        //debugger;
+
     }
 
-    $("#coffee-image").on("click", makeCoffee);
+    // Experimenting with JQuery Animations
+    //     function makeCoffee(drinkType) {
+    //     let totalRevenue;
+    //     drinksOrdered.push(drinkType);
+    //     console.log(drinksOrdered);
 
-    // use this JavaScript object in further study step
+    //     $("#coffee-image").attr("src", "static/coffee_machine.jpg");
 
-    const prices = {
-        "brew": 2.05,
-        "espresso": 3.25,
-        "latte": 4.15,
-        "hot chocolate": 2.50
-    };
+    //     setTimeout(function() {
+    //         $("#coffee-image").fadeOut(1500, function() {
+    //             $("#coffee-image").attr("src", "static/coffee_mug.jpg");
+    //         });
+    //         setTimeout(function() {
+    //             $("#coffee-image").fadeIn(1000, function() {
+                    
+    //                 $("#coffee-image").attr("src", "static/coffee_beans.jpg");    
+    //             });
+    //         }, 1500);//2500);
+    //     }, 1500);
+
+    //     totalRevenue = revenue().toFixed(2);
+    //     $("#revenue").html(`$${totalRevenue}`);
+
+    // }
+
+    $("#coffee-image").on("click", function() {
+        makeCoffee("brew");
+    });
+
+    // Add event listener to drink buttons
+
+    $(".btn").on("click", function(ev) {
+        makeCoffee(ev.target.id);
+    })
+
+
+    function revenue() {
+        let totalPrice = 0;
+        for (let drink of drinksOrdered) {
+            totalPrice += prices[drink];
+        }
+
+        return totalPrice;
+    }
+
+
 
 
 </script>
