@@ -25,6 +25,7 @@
 
             // Use `prompt()` to get the user's guess.
             userGuess = prompt(`Try to unscramble this word: ${randomWord} | Enter your guess:`, "")
+            userGuess = userGuess.toLowerCase().trim();
 
             // Compare the guess to the original, unscrambled word. 
             // If the user got it right, congratulate them, if not tell them so.
