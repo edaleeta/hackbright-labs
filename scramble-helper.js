@@ -98,7 +98,24 @@ function shuffleWord (word) {
     return wordChars.join("");
 }
 
-
+// Given an array of words, returns an array of shuffled words.
+function shuffleWords (words) {
+    let shuffledWords = [];
+    for (let word of words) {
+        shuffledWords.push(shuffleWord(word));
+    }
+    return shuffledWords;
+}
 
 // Create a function that takes an array of words and returns a map with the
 // scrambled words as the keys and the original word as the values.
+
+function generateShuffledWordsMap (words) {
+    let shuffledWordsMap = new Map();
+    let shuffledWords = shuffleWords(words);
+
+    for (let i = 0; i < words.length; i++) {
+        shuffledWordsMap.set(shuffledWords[i], words[i]);
+    }
+    return shuffledWordsMap;
+}
