@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word Scramble</title>
+    <script src="scramble-helper.js"></script>
+</head>
+<body>
+    <h1>A JavaScript Word Scramble Game</h1>
+
+    <script>
+        const WORDS     = ["booger", "apple", "hackbright", "mango"];
+
+        // create an array of scrambled words
+        // create a map of scrambled words
+
+        let scrambledWordsMap = generateShuffledWordsMap(myWords);
+        let playing = true;
+
+        while (playing) {
+            // Select a scrambled word from your array. 
+            let randomWord = pickRandomWordFromKeys(scrambledWordsMap);
+            // Get the corresponding correct word
+            let correctWord = scrambledWordsMap.get(randomWord);
+
+            // Use `prompt()` to get the user's guess.
+            userGuess = getGuess(randomWord);
+
+            // Compare the guess to the original, unscrambled word. 
+            // If the user got it right, congratulate them, if not tell them so.
+
+            while (!checksGuess(userGuess, correctWord) && playing) {
+                if (confirm("Oops! Wrong answer! Would you like to guess again?")) {
+                    userGuess = getGuess(randomWord);
+                } else {
+                    alert(`Sorry! The correct answer was ${correctWord}.`);
+                    playing = false;
+                }
+            }
+            if (checksGuess(userGuess, correctWord)) {
+                alert(`You were correct! The word was ${correctWord}!`);
+            }
+            
+            playing = confirm("Press OK to keep playing or Cancel to quit.");
+        }
+        alert("Goodbye!");
+    </script>
+
+</body>
+</html>
