@@ -1,0 +1,699 @@
+Melon 1
+- Melon type: yw
+- Shape rating: 1
+- Color rating: 2
+- Harvested from Field 37
+- Harvested by Sheila
+
+Melon 2
+- Melon type: cren
+- Shape rating: 5
+- Color rating: 8
+- Harvested from Field 21
+- Harvested by Sheila
+
+Melon 3
+- Melon type: cas
+- Shape rating: 10
+- Color rating: 10
+- Harvested from Field 66
+- Harvested by Terry
+
+Melon 4
+- Melon type: yw
+- Shape rating: 1
+- Color rating: 9
+- Harvested from Field 60
+- Harvested by Terry
+
+Melon 5
+- Melon type: cren
+- Shape rating: 2
+- Color rating: 6
+- Harvested from Field 22
+- Harvested by Sheila
+
+Melon 6
+- Melon type: cren
+- Shape rating: 9
+- Color rating: 3
+- Harvested from Field 9
+- Harvested by Sheila
+
+Melon 7
+- Melon type: cas
+- Shape rating: 1
+- Color rating: 6
+- Harvested from Field 21
+- Harvested by Michael
+
+Melon 8
+- Melon type: musk
+- Shape rating: 7
+- Color rating: 1
+- Harvested from Field 15
+- Harvested by Sheila
+
+Melon 9
+- Melon type: yw
+- Shape rating: 7
+- Color rating: 6
+- Harvested from Field 6
+- Harvested by Terry
+
+Melon 10
+- Melon type: yw
+- Shape rating: 1
+- Color rating: 5
+- Harvested from Field 25
+- Harvested by Sheila
+
+Melon 11
+- Melon type: cren
+- Shape rating: 5
+- Color rating: 5
+- Harvested from Field 60
+- Harvested by Michael
+
+Melon 12
+- Melon type: cas
+- Shape rating: 3
+- Color rating: 3
+- Harvested from Field 44
+- Harvested by Sheila
+
+Melon 13
+- Melon type: cas
+- Shape rating: 7
+- Color rating: 3
+- Harvested from Field 58
+- Harvested by Sheila
+
+Melon 14
+- Melon type: yw
+- Shape rating: 3
+- Color rating: 3
+- Harvested from Field 20
+- Harvested by Loyd
+
+Melon 15
+- Melon type: yw
+- Shape rating: 4
+- Color rating: 9
+- Harvested from Field 63
+- Harvested by Michael
+
+Melon 16
+- Melon type: cren
+- Shape rating: 10
+- Color rating: 4
+- Harvested from Field 53
+- Harvested by Sheila
+
+Melon 17
+- Melon type: cas
+- Shape rating: 9
+- Color rating: 4
+- Harvested from Field 28
+- Harvested by Terry
+
+Melon 18
+- Melon type: cas
+- Shape rating: 6
+- Color rating: 1
+- Harvested from Field 44
+- Harvested by Terry
+
+Melon 19
+- Melon type: musk
+- Shape rating: 9
+- Color rating: 2
+- Harvested from Field 5
+- Harvested by Michael
+
+Melon 20
+- Melon type: cas
+- Shape rating: 3
+- Color rating: 7
+- Harvested from Field 56
+- Harvested by Terry
+
+Melon 21
+- Melon type: cas
+- Shape rating: 4
+- Color rating: 6
+- Harvested from Field 5
+- Harvested by Terry
+
+Melon 22
+- Melon type: cas
+- Shape rating: 3
+- Color rating: 1
+- Harvested from Field 28
+- Harvested by Loyd
+
+Melon 23
+- Melon type: musk
+- Shape rating: 4
+- Color rating: 2
+- Harvested from Field 62
+- Harvested by Terry
+
+Melon 24
+- Melon type: yw
+- Shape rating: 7
+- Color rating: 2
+- Harvested from Field 19
+- Harvested by Terry
+
+Melon 25
+- Melon type: yw
+- Shape rating: 10
+- Color rating: 5
+- Harvested from Field 18
+- Harvested by Loyd
+
+Melon 26
+- Melon type: cas
+- Shape rating: 10
+- Color rating: 4
+- Harvested from Field 1
+- Harvested by Sheila
+
+Melon 27
+- Melon type: cas
+- Shape rating: 3
+- Color rating: 1
+- Harvested from Field 25
+- Harvested by Loyd
+
+Melon 28
+- Melon type: yw
+- Shape rating: 4
+- Color rating: 2
+- Harvested from Field 55
+- Harvested by Sheila
+
+Melon 29
+- Melon type: musk
+- Shape rating: 3
+- Color rating: 6
+- Harvested from Field 38
+- Harvested by Loyd
+
+Melon 30
+- Melon type: yw
+- Shape rating: 7
+- Color rating: 3
+- Harvested from Field 4
+- Harvested by Loyd
+
+Melon 31
+- Melon type: musk
+- Shape rating: 3
+- Color rating: 2
+- Harvested from Field 23
+- Harvested by Sheila
+
+Melon 32
+- Melon type: cas
+- Shape rating: 6
+- Color rating: 7
+- Harvested from Field 66
+- Harvested by Michael
+
+Melon 33
+- Melon type: cas
+- Shape rating: 10
+- Color rating: 8
+- Harvested from Field 67
+- Harvested by Michael
+
+Melon 34
+- Melon type: yw
+- Shape rating: 7
+- Color rating: 4
+- Harvested from Field 33
+- Harvested by Loyd
+
+Melon 35
+- Melon type: musk
+- Shape rating: 10
+- Color rating: 3
+- Harvested from Field 30
+- Harvested by Sheila
+
+Melon 36
+- Melon type: cas
+- Shape rating: 9
+- Color rating: 4
+- Harvested from Field 69
+- Harvested by Sheila
+
+Melon 37
+- Melon type: cas
+- Shape rating: 4
+- Color rating: 9
+- Harvested from Field 57
+- Harvested by Michael
+
+Melon 38
+- Melon type: cren
+- Shape rating: 8
+- Color rating: 3
+- Harvested from Field 70
+- Harvested by Sheila
+
+Melon 39
+- Melon type: cren
+- Shape rating: 4
+- Color rating: 2
+- Harvested from Field 44
+- Harvested by Terry
+
+Melon 40
+- Melon type: cren
+- Shape rating: 7
+- Color rating: 2
+- Harvested from Field 25
+- Harvested by Loyd
+
+Melon 41
+- Melon type: yw
+- Shape rating: 2
+- Color rating: 5
+- Harvested from Field 9
+- Harvested by Michael
+
+Melon 42
+- Melon type: musk
+- Shape rating: 5
+- Color rating: 10
+- Harvested from Field 53
+- Harvested by Loyd
+
+Melon 43
+- Melon type: cas
+- Shape rating: 8
+- Color rating: 6
+- Harvested from Field 7
+- Harvested by Loyd
+
+Melon 44
+- Melon type: yw
+- Shape rating: 10
+- Color rating: 2
+- Harvested from Field 52
+- Harvested by Sheila
+
+Melon 45
+- Melon type: cren
+- Shape rating: 7
+- Color rating: 7
+- Harvested from Field 52
+- Harvested by Loyd
+
+Melon 46
+- Melon type: cren
+- Shape rating: 3
+- Color rating: 7
+- Harvested from Field 48
+- Harvested by Sheila
+
+Melon 47
+- Melon type: cren
+- Shape rating: 4
+- Color rating: 4
+- Harvested from Field 66
+- Harvested by Loyd
+
+Melon 48
+- Melon type: cren
+- Shape rating: 8
+- Color rating: 3
+- Harvested from Field 12
+- Harvested by Loyd
+
+Melon 49
+- Melon type: cren
+- Shape rating: 4
+- Color rating: 2
+- Harvested from Field 17
+- Harvested by Terry
+
+Melon 50
+- Melon type: musk
+- Shape rating: 2
+- Color rating: 9
+- Harvested from Field 50
+- Harvested by Michael
+
+Melon 51
+- Melon type: musk
+- Shape rating: 5
+- Color rating: 6
+- Harvested from Field 49
+- Harvested by Michael
+
+Melon 52
+- Melon type: cas
+- Shape rating: 4
+- Color rating: 4
+- Harvested from Field 70
+- Harvested by Sheila
+
+Melon 53
+- Melon type: cren
+- Shape rating: 3
+- Color rating: 7
+- Harvested from Field 26
+- Harvested by Michael
+
+Melon 54
+- Melon type: yw
+- Shape rating: 5
+- Color rating: 10
+- Harvested from Field 47
+- Harvested by Sheila
+
+Melon 55
+- Melon type: yw
+- Shape rating: 6
+- Color rating: 9
+- Harvested from Field 67
+- Harvested by Sheila
+
+Melon 56
+- Melon type: cas
+- Shape rating: 4
+- Color rating: 4
+- Harvested from Field 51
+- Harvested by Terry
+
+Melon 57
+- Melon type: yw
+- Shape rating: 6
+- Color rating: 9
+- Harvested from Field 60
+- Harvested by Sheila
+
+Melon 58
+- Melon type: cren
+- Shape rating: 4
+- Color rating: 8
+- Harvested from Field 41
+- Harvested by Loyd
+
+Melon 59
+- Melon type: cren
+- Shape rating: 5
+- Color rating: 4
+- Harvested from Field 2
+- Harvested by Terry
+
+Melon 60
+- Melon type: cren
+- Shape rating: 1
+- Color rating: 3
+- Harvested from Field 45
+- Harvested by Terry
+
+Melon 61
+- Melon type: musk
+- Shape rating: 5
+- Color rating: 5
+- Harvested from Field 69
+- Harvested by Loyd
+
+Melon 62
+- Melon type: yw
+- Shape rating: 8
+- Color rating: 4
+- Harvested from Field 34
+- Harvested by Sheila
+
+Melon 63
+- Melon type: yw
+- Shape rating: 2
+- Color rating: 1
+- Harvested from Field 29
+- Harvested by Terry
+
+Melon 64
+- Melon type: cren
+- Shape rating: 1
+- Color rating: 3
+- Harvested from Field 25
+- Harvested by Michael
+
+Melon 65
+- Melon type: musk
+- Shape rating: 4
+- Color rating: 1
+- Harvested from Field 12
+- Harvested by Sheila
+
+Melon 66
+- Melon type: cas
+- Shape rating: 2
+- Color rating: 4
+- Harvested from Field 60
+- Harvested by Terry
+
+Melon 67
+- Melon type: musk
+- Shape rating: 10
+- Color rating: 10
+- Harvested from Field 21
+- Harvested by Loyd
+
+Melon 68
+- Melon type: cas
+- Shape rating: 7
+- Color rating: 8
+- Harvested from Field 21
+- Harvested by Michael
+
+Melon 69
+- Melon type: musk
+- Shape rating: 8
+- Color rating: 3
+- Harvested from Field 38
+- Harvested by Terry
+
+Melon 70
+- Melon type: cren
+- Shape rating: 9
+- Color rating: 3
+- Harvested from Field 5
+- Harvested by Michael
+
+Melon 71
+- Melon type: cren
+- Shape rating: 9
+- Color rating: 10
+- Harvested from Field 6
+- Harvested by Sheila
+
+Melon 72
+- Melon type: cas
+- Shape rating: 3
+- Color rating: 2
+- Harvested from Field 30
+- Harvested by Michael
+
+Melon 73
+- Melon type: musk
+- Shape rating: 3
+- Color rating: 4
+- Harvested from Field 15
+- Harvested by Terry
+
+Melon 74
+- Melon type: cas
+- Shape rating: 5
+- Color rating: 2
+- Harvested from Field 48
+- Harvested by Sheila
+
+Melon 75
+- Melon type: cas
+- Shape rating: 6
+- Color rating: 1
+- Harvested from Field 27
+- Harvested by Sheila
+
+Melon 76
+- Melon type: yw
+- Shape rating: 1
+- Color rating: 1
+- Harvested from Field 66
+- Harvested by Sheila
+
+Melon 77
+- Melon type: cas
+- Shape rating: 4
+- Color rating: 1
+- Harvested from Field 69
+- Harvested by Michael
+
+Melon 78
+- Melon type: musk
+- Shape rating: 1
+- Color rating: 4
+- Harvested from Field 20
+- Harvested by Sheila
+
+Melon 79
+- Melon type: cren
+- Shape rating: 10
+- Color rating: 1
+- Harvested from Field 50
+- Harvested by Terry
+
+Melon 80
+- Melon type: cas
+- Shape rating: 7
+- Color rating: 6
+- Harvested from Field 46
+- Harvested by Terry
+
+Melon 81
+- Melon type: yw
+- Shape rating: 10
+- Color rating: 10
+- Harvested from Field 50
+- Harvested by Terry
+
+Melon 82
+- Melon type: cren
+- Shape rating: 7
+- Color rating: 4
+- Harvested from Field 40
+- Harvested by Sheila
+
+Melon 83
+- Melon type: musk
+- Shape rating: 3
+- Color rating: 10
+- Harvested from Field 13
+- Harvested by Sheila
+
+Melon 84
+- Melon type: cren
+- Shape rating: 9
+- Color rating: 1
+- Harvested from Field 39
+- Harvested by Michael
+
+Melon 85
+- Melon type: cren
+- Shape rating: 3
+- Color rating: 6
+- Harvested from Field 25
+- Harvested by Sheila
+
+Melon 86
+- Melon type: yw
+- Shape rating: 1
+- Color rating: 10
+- Harvested from Field 11
+- Harvested by Michael
+
+Melon 87
+- Melon type: cas
+- Shape rating: 3
+- Color rating: 7
+- Harvested from Field 62
+- Harvested by Loyd
+
+Melon 88
+- Melon type: musk
+- Shape rating: 7
+- Color rating: 5
+- Harvested from Field 43
+- Harvested by Sheila
+
+Melon 89
+- Melon type: yw
+- Shape rating: 5
+- Color rating: 10
+- Harvested from Field 4
+- Harvested by Loyd
+
+Melon 90
+- Melon type: cas
+- Shape rating: 5
+- Color rating: 9
+- Harvested from Field 23
+- Harvested by Terry
+
+Melon 91
+- Melon type: musk
+- Shape rating: 2
+- Color rating: 8
+- Harvested from Field 63
+- Harvested by Michael
+
+Melon 92
+- Melon type: yw
+- Shape rating: 9
+- Color rating: 9
+- Harvested from Field 52
+- Harvested by Terry
+
+Melon 93
+- Melon type: yw
+- Shape rating: 4
+- Color rating: 8
+- Harvested from Field 47
+- Harvested by Loyd
+
+Melon 94
+- Melon type: cas
+- Shape rating: 6
+- Color rating: 5
+- Harvested from Field 35
+- Harvested by Michael
+
+Melon 95
+- Melon type: cas
+- Shape rating: 5
+- Color rating: 10
+- Harvested from Field 28
+- Harvested by Loyd
+
+Melon 96
+- Melon type: musk
+- Shape rating: 8
+- Color rating: 1
+- Harvested from Field 18
+- Harvested by Sheila
+
+Melon 97
+- Melon type: yw
+- Shape rating: 1
+- Color rating: 7
+- Harvested from Field 59
+- Harvested by Terry
+
+Melon 98
+- Melon type: cren
+- Shape rating: 8
+- Color rating: 1
+- Harvested from Field 1
+- Harvested by Sheila
+
+Melon 99
+- Melon type: cas
+- Shape rating: 3
+- Color rating: 1
+- Harvested from Field 54
+- Harvested by Loyd
+
+Melon 100
+- Melon type: musk
+- Shape rating: 4
+- Color rating: 6
+- Harvested from Field 52
+- Harvested by Sheila
