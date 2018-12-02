@@ -1,0 +1,45 @@
+{% extends 'content.html' %}
+
+{% block title %}Game - Let's play madlibs!{% endblock %}
+
+{% block content_header %}Let's play Madlibs!{% endblock %}
+
+{% block text %}
+<div id="game-form">
+    <form action='/madlib'>
+        <span class="form-instruction">Select a person:</span>
+        <br>
+        <select name="person">
+            {% for person in people %}
+                <option value="{{ person }}">{{ person }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <span class="form-instruction">Select a color:</span>
+        <br>
+        {% for color in colors %}
+            <div class="form-item">
+                <label><input type="radio" name="color" value=" {{ color }}"> {{ color }}</label>
+            </div>
+        {% endfor %}
+        <br>
+        <span class="form-instruction">Enter a noun:</span>
+        <br>
+        <input type="text" name="noun">
+        <br>
+        <span class="form-instruction">Enter an adjective:</span>
+        <br>
+        <input type="text" name="adjective">
+        <br>
+        <span class="form-instruction">Select your favorite animals:</span>
+        <br>
+        {% for animal in animals %}
+            <div class="form-item">
+                <label><input type="checkbox" name="animals" value="{{ animal }}"> {{ animal }}</label>
+            </div>
+        {% endfor %}
+        <br>
+        <input type="submit" value="Ok, go!">
+    </form>
+</div>
+{% endblock %}

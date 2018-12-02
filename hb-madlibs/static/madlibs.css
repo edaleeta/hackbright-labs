@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat:400,700');
+
+html {
+    height: 100%;
+}
+
+body {
+    background-color: #d0d0ce;
+    height:100%;
+    min-height: 100%;
+    font-family: Caveat;
+    font-size: 3.5vw;
+    background-image: url('/static/paper_crop.jpg');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-attachment: fixed;
+    overflow: hidden;
+}
+
+h1 {
+    margin-bottom: 10px;
+    font-size: 6vw;
+}
+
+p {
+    margin: 0;
+}
+
+input, select, button{
+    font-size: 2vw;
+    letter-spacing: 1px;
+    background-color: rgba(255, 255, 255, 0.30);
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;    
+    padding: 10px 10px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #858582;
+    margin-bottom: 2.5vw;
+}
+
+select {
+    width: 250px;
+}
+
+input[type=text] {
+    width: 250px;
+}
+
+input[type=submit], button {
+    border-color: #965c11;
+    text-decoration: underline;
+}
+
+label {
+    padding-right: 15px;
+}
+
+.form-item{
+    display: inline-block;
+}
+
+.form-instruction {
+    font-weight: bold;
+    border-bottom: 1px black solid;
+}
+
+#container {
+    position: relative;
+    top: 20vw;
+    margin: 0 auto;
+    width: 60%;
+}
+
+#game-form {
+    overflow: scroll;
+    height: 40vw;
+    font-size: 100%;
+
+
+}
+/*#paper {
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+}
+
+paper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    min-width: 50%;
+    min-height: 50%;
+}*/

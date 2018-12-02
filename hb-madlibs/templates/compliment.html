@@ -1,0 +1,18 @@
+{% extends 'content.html' %}
+{% block title %}A Compliment{% endblock %}
+
+{% block content_header %}Hi {{ person }}!{% endblock %}
+{% block text %}
+    I think you're {{ compliment }}!<br><br>
+    <span class="form-instruction">Would you like to play a game?<br></span>
+    <form action="/game">
+        <div class="form-item">
+            <label><input type="radio" name="play-game" value="yes"> Yes</label>
+        </div>
+        <div class="form-item">
+            <label><input type="radio" name="play-game" value="no"> No</label>
+        </div>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+{% endblock %}
